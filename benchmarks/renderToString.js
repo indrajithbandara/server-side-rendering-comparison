@@ -12,6 +12,7 @@ const limit = 10;
 runRenderTask(__dirname + '/raxRenderToString.js', limit)
   .then(() => runRenderTask(__dirname + '/reactRenderToString.js', limit))
   .then(() => runRenderTask(__dirname + '/vueRenderToString.js', limit))
+  .then(() => runRenderTask(__dirname + '/markoRenderToString.js', limit))
   .catch((err) => {
     console.log('Got Err:', err.stack);
   });

@@ -1,6 +1,7 @@
 'use strict';
 
 process.env.NODE_ENV = 'production';
+require('marko/compiler').configure({ writeToDisk:false });
 
 const fs = require('fs');
 const koa = require('koa');
@@ -13,9 +14,22 @@ const Rax = require('rax');
 const raxRenderToString = require('rax-server-renderer').renderToString;
 const Vue = require('vue');
 const vueRenderToString = require('vue-server-renderer').createRenderer().renderToString;
+const markoPageTemplate = require('marko').load(require.resolve('./views/page.marko'));
 
 const app = require('xtpl/lib/koa')(require('koa')(), {
   views:'./views'
+});
+
+router.get('/marko', function *() {
+
+  const pageConfig = {
+    listData: require('./mock/list'),
+    bannerData: require('./mock/banner')
+  };
+
+  this.set('Content-Type', 'text/html');
+  this.body = markoPageTemplate.renderToString(pageConfig);
+
 });
 
 router.get('/react', function *() {

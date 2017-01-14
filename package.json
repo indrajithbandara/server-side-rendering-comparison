@@ -28,6 +28,8 @@
     "koa": "^1.2.4",
     "koa-router": "^5.4.0",
     "koa-static": "^2.0.0",
+    "marko": "^4.0.0-rc.3",
+    "marko-loader": "^1.1.1",
     "rax": "^0.1.2",
     "rax-server-renderer": "^0.1.2",
     "react": "^15.4.2",

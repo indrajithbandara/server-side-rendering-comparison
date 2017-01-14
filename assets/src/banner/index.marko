@@ -1,0 +1,25 @@
+<script>
+  const itemStyle = {
+    'display': 'inline-block',
+    'width': '200px',
+    'margin-left': '200px'
+  };
+
+  export default {
+    onInput(input) {
+      this.state = {
+        items:input.items
+      }
+    },
+    onBannerClick(title) {
+      alert('click banner:' + title);
+    }
+  }
+</script>
+
+<div>
+  <h2>Marko Banner: </h2>
+  <div for(idx, item in state.items) style=itemStyle on-click('onBannerClick', item.title)>
+    <img src=item.img style={ width:'100%' } />
+  </div>
+</div>

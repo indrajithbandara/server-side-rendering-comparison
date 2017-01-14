@@ -5,6 +5,7 @@ var webpack = require('webpack');
 module.exports = {
 
   entry: {
+    'client.marko': './assets/src/app/index.marko',
     'client.react': './assets/src/client.react.js',
     'client.rax': './assets/src/client.rax.js',
     'client.vue': './assets/src/client.vue.js'
@@ -14,6 +15,11 @@ module.exports = {
   },
   module: {
     loaders:[
+      {
+        test: /\.marko?$/,
+        exclude: /node_modules/,
+        loader: 'marko-loader'
+      },
       {
         test: /(rax|react)\.js[x]?$/,
         exclude: /node_modules/,

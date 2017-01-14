@@ -1,0 +1,23 @@
+<script>
+  export default {
+    onInput(input) {
+      this.state = {
+        items: input.items || []
+      };
+    }
+  }
+</script>
+
+<div>
+  <h2>MarkoList</h2>
+  <div for(idx, item in state.items) style={
+    'float': 'left',
+    'width': '200px',
+    'margin-right': '10px',
+    'margin-bottom': '10px'
+  }>
+    <img src=item.img style={ width:'100%' } />
+    <p>${item.title}</p>
+    <div/>
+  </div>
+</div>
